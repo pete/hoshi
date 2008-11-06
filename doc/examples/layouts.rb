@@ -58,4 +58,4 @@ class Fibonacci < Hoshi::View :xhtml1
 	end
 end
 
-puts Fibonacci.new.list_page(30)
+puts Fibonacci.new.list_page(10)

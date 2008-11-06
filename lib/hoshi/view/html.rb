@@ -3,7 +3,7 @@ class Hoshi::View
 		tags *%w(html head body)
 
 		def cdata str
-			"<![CDATA[\n" + str + "\n]]>"
+			append! "<![CDATA[\n" + str + "\n]]>"
 		end
 	end
 end
