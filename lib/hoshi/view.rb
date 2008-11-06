@@ -1,6 +1,6 @@
 require 'metaid'
 
-class Hoshi
+module Hoshi
 	class View
 		class ValidationError < StandardError; end
 

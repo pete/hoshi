@@ -1,4 +1,4 @@
-class Hoshi
+module Hoshi
 	# Represents an HTML tag.
 	class Tag
 		attr_accessor :name, :close_type
