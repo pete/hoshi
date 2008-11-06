@@ -1,4 +1,4 @@
-require 'nice_html/view/html'
+require 'nice_html/view/xhtml'
 
 class NiceHTML::View
 	class XHTML1Frameset < XHTML1
