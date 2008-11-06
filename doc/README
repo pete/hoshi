@@ -11,6 +11,7 @@ Hoshi is designed to:
 	* Generate clean HTML/XHTML/XML with minimal effort
 	* Be easy for a coder to use and understand
 	* Take full advantage of Ruby's object sytem
+	* Be more readable and easier to write than bare HTML
 
 It is semi-modeled after Markaby, but with a much more straightforward
 implementation and different semantics (e.g., no instance_eval, so scope
