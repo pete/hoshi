@@ -4,8 +4,6 @@ class Hoshi
 	class View
 		class ValidationError < StandardError; end
 
-		meta_eval { attr_accessor :doctype }
-
 		def self.tag(name, close_type = nil)
 			tag = Tag.new(name, close_type)
 			define_method(name) { |*opts,&b|
@@ -37,7 +35,14 @@ class Hoshi
 			}) rescue nil
 		end
 
-		def self.decl(*a)
+		# Sets the doctype declaration for the view.
+		def self.dtd! dtd
+			dtd += "\n"
+			define_method(:doctype) { append! dtd }
+		end
+		def doctype
+			comment "No doctype defined; are you sub-classing View directly " \
+				"and not calling dtd!()?"
 		end
 
 		# Free-form tags.  Basically, dynamic tag creation by method_missing.
@@ -82,10 +87,6 @@ class Hoshi
 
 		def render
 			tree.flatten.map(&:to_s).join
-		end
-
-		def doctype
-			append! self.class.doctype
 		end
 
 		def method_missing(mname, *args)
