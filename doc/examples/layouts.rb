@@ -9,7 +9,7 @@ module Layout
 			head {
 				title t
 				script(:type => 'text/javascript') {
-					cdata "alert(\"Hi, I'm some javascript, I suppose.\");"
+					raw "alert(\"Hi, I'm some javascript, I suppose.\");"
 				}
 			}
 

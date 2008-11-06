@@ -63,7 +63,7 @@ You can get a little more complicated:
         head {
           title t
           script(:type => 'text/javascript') {
-            cdata "alert(\"Hi, I'm some javascript, I suppose.\");"
+            raw "alert(\"Hi, I'm some javascript, I suppose.\");"
           }
         }
         
