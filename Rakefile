@@ -16,7 +16,8 @@ spec = Gem::Specification.new { |s|
 	s.extensions << 'ext/extconf.rb' if File.exist? 'ext/extconf.rb'
 	Dir['bin/*'].map(&File.method(:basename)).map(&s.executables.method(:<<))
 
-	s.name = 'nice_html'
+	s.name = 'hoshi'
+	s.rubyforge_project = 'hoshi'
 	s.summary = "Nice, object-oriented, first-class views."
 	s.homepage = "http://debu.gs/#{s.name}"
 	%w(facets metaid).each &s.method(:add_dependency)

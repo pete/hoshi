@@ -1,6 +1,6 @@
-require 'nice_html/view/xhtml'
+require 'hoshi/view/xhtml'
 
-class NiceHTML::View
+class Hoshi::View
 	class XHTML1 < XHTML
 		self.doctype = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 " \
 			"Strict//EN\" " \

@@ -1,6 +1,6 @@
-require 'nice_html/view/xhtml'
+require 'hoshi/view/xhtml'
 
-class NiceHTML::View
+class Hoshi::View
 	class XHTML1Transitional < XHTML
 		self.doctype = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 " \
 			"Transitional//EN\" " \

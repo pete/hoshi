@@ -1,6 +1,6 @@
 require 'metaid'
 
-class NiceHTML
+class Hoshi
 	class View
 		class ValidationError < StandardError; end
 
