@@ -64,6 +64,14 @@ class NiceHTML
 			x
 		end
 
+		def safe *things
+			append! CGI.escapeHTML(things.map(&:to_s).join("\n"))
+		end
+
+		def raw *things
+			append! things.join
+		end
+
 		def render
 			tree.flatten.map(&:to_s).join
 		end
