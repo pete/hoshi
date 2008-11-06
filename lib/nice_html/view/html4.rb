@@ -6,12 +6,12 @@ class NiceHTML::View
 			"\"http://www.w3.org/TR/html4/strict.dtd\">"
 
 
-		tag *%w(a address applet area base basefont bdo blockquote body br
-				button caption center col colgroup dd div dl dt fieldset font
-				form frame frameset head hr html iframe img input isindex label
-				legend li link map meta noframes noscript object ol optgroup
-				option p param pre q script select span style table tbody
-				textarea tfoot thead title tr ul)
+		tags *%w(a address applet area base basefont bdo blockquote body br
+				 button caption center col colgroup dd div dl dt fieldset font
+				 form frame frameset head hr html iframe img input isindex
+				 label legend li link map meta noframes noscript object ol
+				 optgroup option p param pre q script select span style table
+				 tbody textarea tfoot thead title tr ul)
 	end
 end
 
