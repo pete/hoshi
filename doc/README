@@ -1,0 +1,131 @@
+= Hoshi
+
+== Summary
+
+Hoshi is a library for creating real first-class HTML/XML views.  So,
+unlike template libraries, you can take advantage of mixins,
+inheritance, and all the other wonderful features of Ruby's object
+system.
+
+Hoshi is designed to:
+	* Generate clean HTML/XHTML/XML with minimal effort
+	* Be easy for a coder to use and understand
+	* Take full advantage of Ruby's object sytem
+
+It is semi-modeled after Markaby, but with a much more straightforward
+implementation and different semantics (e.g., no instance_eval, so scope
+inside a tag is as expected).  Hoshi also allows a tag to follow another
+tag without requiring any << or +=.
+
+== Installation
+
+You can install via rubygems,
+
+  gem install hoshi
+
+or by downloading from github (http://github.com/pete/hoshi).
+
+== Usage
+
+These should be fairly straightforward:
+
+  require 'hoshi'
+
+  class Trivial < Hoshi::View :html4
+    def show
+      doctype
+      html {
+        head {
+          title "Hello, world!"
+          link :rel => 'stylesheet', :href => '/css/hoshi.css'
+        }
+
+        body {
+          h1 "Hello, world!"
+          p "This is a greeting to the world."
+        }
+      }
+      render
+    end
+  end
+
+  puts Trivial.new.show
+
+You can get a little more complicated:
+
+  require 'hoshi'
+  require 'cgi'
+
+  module Layout
+    def main_page(t)
+      doctype
+      html {
+        head {
+          title t
+          script(:type => 'text/javascript') {
+            cdata "alert(\"Hi, I'm some javascript, I suppose.\");"
+          }
+        }
+        
+        body {
+          h1 t, :class => 'page_title'
+
+          yield
+        }
+      }
+    end
+
+    def list_page(t)
+      main_page(t) {
+        ul {
+          yield
+        }
+      }
+    end
+  end
+
+
+  class Fibonacci < Hoshi::View :xhtml1
+    include Layout
+
+    def list_page(n)
+      super("Fibonacci: f(0)..f(#{n})") {
+        fib_upto(n).map { |i| li i.to_s }
+      }
+      CGI.pretty(render)
+    end
+
+    private
+
+    def fib_upto n
+      a = Array.new(n) 
+      
+      0.upto(n) { |i|
+        a[i] = 
+          if i < 2
+            1
+          else
+            a[i - 1] + a[i - 2]
+          end
+      }
+
+      a
+    end
+  end
+
+  puts Fibonacci.new.list_page(n)
+
+These examples and more featured in the fabulous doc/examples directory.
+
+== Bugs
+
+There needs to be some work done on correcting the tags.
+
+== Credits
+
+Pete Elmore -- (pete.elmore(a)gmail.com)
+Dan Yoder -- (danyoder(a)mac.com)
+
+== Home page
+
+http://debu.gs/hoshi
