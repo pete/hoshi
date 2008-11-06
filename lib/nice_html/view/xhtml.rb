@@ -1,4 +1,4 @@
 class NiceHTML::View
-	class HTML < self
+	class XHTML < HTML
 	end
 end

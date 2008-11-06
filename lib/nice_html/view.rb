@@ -1,6 +1,10 @@
+require 'metaid'
+
 class NiceHTML
 	class View
 		class ValidationError < StandardError; end
+
+		meta_eval { attr_accessor :doctype }
 
 		def self.tag(name, close_type = nil)
 			tag = Tag.new(name, close_type)
@@ -17,15 +21,19 @@ class NiceHTML
 			}
 		end
 
-		def self.tags(*names)
+		def self.tags *names
 			names.map &method(:tag)
 		end
 
+		def self.open_tags *names
+			names.map { |n| tag n, :none }
+		end
+
 		def self.[] doctype
+			doctype = doctype.to_s.downcase.gsub('_', '')
 			const_get(constants.find { |c| 
 				cl = const_get c
-				cl.ancestors.include?(self) && 
-					c.downcase == doctype.to_s.downcase
+				cl.ancestors.include?(self) && c.downcase == doctype
 			}) rescue nil
 		end
 
@@ -74,6 +82,10 @@ class NiceHTML
 
 		def render
 			tree.flatten.map(&:to_s).join
+		end
+
+		def doctype
+			append! self.class.doctype
 		end
 
 		def method_missing(mname, *args)
