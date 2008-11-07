@@ -57,8 +57,8 @@ end
 
 # This file can also be run stand-alone:
 if __FILE__ == $0
-	require 'cgi'
-	puts CGI.pretty(#{class_name}.new.page)
+#{indent}require 'cgi'
+#{indent}puts CGI.pretty(#{class_name}.new.page)
 end
 EOHOSHI
 outfile.close
