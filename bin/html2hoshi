@@ -42,12 +42,23 @@ indent = "\t"
 
 hoshi = Hoshi.from_html html_file.read, indent
 
-outfile.print(<<EOF)
+outfile.print(<<EOHOSHI)
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'hoshi'
+
 # Generated with html2hoshi.  You will likely want to change the class name,
 # method name, and class that it inherits from.
 class #{class_name} < Hoshi::View :html
 #{indent}permissive!
 #{hoshi}
 end
-EOF
+
+# This file can also be run stand-alone:
+if __FILE__ == $0
+	require 'cgi'
+	puts CGI.pretty(#{class_name}.new.page)
+end
+EOHOSHI
 outfile.close
