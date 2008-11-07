@@ -16,7 +16,7 @@ Hoshi is designed to:
 It is semi-modeled after Markaby, but with a much more straightforward
 implementation and different semantics (e.g., no instance_eval, so scope
 inside a tag is as expected).  Hoshi also allows a tag to follow another
-tag without requiring any << or +=.
+tag without requiring any <<, +, or +=.
 
 == Installation
 
@@ -117,6 +117,9 @@ You can get a little more complicated:
   puts Fibonacci.new.list_page(n)
 
 These examples and more featured in the fabulous doc/examples directory.
+Also, there is a program included called html2hoshi (and associated
+lib/html2hoshi.rb; see Hoshi.from_html) that takes HTML as input and
+converts it to Ruby code using Hoshi.
 
 == Bugs
 
@@ -125,7 +128,16 @@ There needs to be some work done on correcting the tags.
 == Credits
 
 Pete Elmore -- (pete.elmore(a)gmail.com)
+
 Dan Yoder -- (danyoder(a)mac.com)
+
+Also, I guess I should credit Attractive Eighties Women
+(http://attractiveeightieswomen.com/), since I was blasting them the
+whole time I was developing this.  Like, over and over.  I couldn't stop
+listening.  My friends and family are becoming concerned.  I don't feel
+that I am yet ready to take the first step by admitting there is a
+problem.  Intervention may be required.  This paragraph should probably
+be considered a cry for help.
 
 == Home page
 

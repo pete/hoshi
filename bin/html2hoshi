@@ -12,7 +12,8 @@ require 'rubygems'
 ).each &method(:require)
 
 if ARGV.empty?
-	$stderr.puts "Usage:  #{$0} html_file [output_file]"
+	$stderr.puts "Usage:  #{$0} html_file [output_file]\nFor either input " \
+		"or output, using - as the filename does the usual thing."
 	exit 1
 end
 
@@ -38,7 +39,7 @@ else
 end
 
 class_name = output.capitalize.gsub(/_(\w)/) { $1.upcase }
-indent = "\t"
+indent = "\t" # TODO: Make it a command-line option.
 
 hoshi = Hoshi.from_html html_file.read, indent
 
