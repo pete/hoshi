@@ -30,6 +30,7 @@ html_file =
 x = ARGV.shift
 if x.nil? || x == '-'
 	output = File.basename(html_filename, '.html')
+	output = 'unnamed_view' if output == '-'
 	outfile = $stdout
 else
 	output = File.basename(x, '.rb')
