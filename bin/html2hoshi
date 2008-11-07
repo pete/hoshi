@@ -1,0 +1,52 @@
+#!/usr/bin/env ruby
+#
+# A script that turns HTML into a Hoshi method.  Useful to turn some HTML
+# (generated or not) into Ruby so that you can add some code to it or just for
+# readability.
+#
+
+require 'rubygems'
+
+%w(
+	html2hoshi
+).each &method(:require)
+
+if ARGV.empty?
+	$stderr.puts "Usage:  #{$0} html_file [output_file]"
+	exit 1
+end
+
+html_filename = ARGV.shift
+html_file = 
+	if html_filename == '-'
+		html_file = $stdin
+	elsif File.exist?(html_filename)
+		File.open html_filename
+	else
+		$stderr.puts "Apparently, #{html_filename} does not exist."
+		exit 1
+	end
+
+x = ARGV.shift
+if x.nil? || x == '-'
+	output = File.basename(html_filename, '.html')
+	outfile = $stdout
+else
+	output = File.basename(x, '.rb')
+	outfile = File.open(x, 'w')
+end
+
+class_name = output.capitalize.gsub(/_(\w)/) { $1.upcase }
+indent = "\t"
+
+hoshi = Hoshi.from_html html_file.read, indent
+
+outfile.print(<<EOF)
+# Generated with html2hoshi.  You will likely want to change the class name,
+# method name, and class that it inherits from.
+class #{class_name} < Hoshi::View :html
+#{indent}permissive!
+#{hoshi}
+end
+EOF
+outfile.close
