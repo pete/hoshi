@@ -1,4 +1,4 @@
-require 'hoshi/view/html'
+require 'hoshi/view/xhtml'
 
 class Hoshi::View
 	class XHTML1 < XHTML

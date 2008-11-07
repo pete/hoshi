@@ -1,4 +1,4 @@
-require 'hoshi/view/html'
+require 'hoshi/view/html4'
 
 class Hoshi::View
 	class HTML4Frameset < HTML4

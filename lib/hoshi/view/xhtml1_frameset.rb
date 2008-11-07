@@ -1,4 +1,4 @@
-require 'hoshi/view/xhtml'
+require 'hoshi/view/xhtml1'
 
 class Hoshi::View
 	class XHTML1Frameset < XHTML1
