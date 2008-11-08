@@ -114,6 +114,12 @@ module Hoshi
 			end
 		end
 
+		# Appends a tag to the current document, for when a tag is only needed
+		# once or has a name that is not a valid method name.
+		def tag(tname, close_type = nil, inside = nil, opts = {})
+			append! Tag.new(tname, close_type).render(inside, opts)
+		end
+
 		# Appends something to the document.  The comment, decl, and various
 		# tag methods call this.
 		def append! x
