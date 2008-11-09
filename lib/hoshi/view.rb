@@ -1,4 +1,5 @@
 require 'metaid'
+require 'cgi'
 
 module Hoshi
 	# The View class is the super-class for views you create with Hoshi.  More
@@ -99,8 +100,10 @@ module Hoshi
 			c.render
 		end
 
+		# This is overridden in HTML/XHTML, and you'll definitely want to
+		# override it if you subclass View directly.
 		def self.content_type
-			nil
+			'application/octet-stream'
 		end
 
 		# Most of these files depend on the above method definitions.
@@ -138,6 +141,12 @@ module Hoshi
 			x
 		end
 
+		# If you're tired of typing "doctype\nhtml" every single time.
+		def doc &b
+			doctype
+			html &b
+		end
+
 		# Turns things in to strings, properly escapes them, and appends them
 		# to the document.
 		def safe *things
@@ -153,6 +162,19 @@ module Hoshi
 		# want to eventually call.
 		def render
 			tree.flatten.map(&:to_s).join
+		end
+
+		# Prints the string representation of the docutment, with HTTP headers.
+		# Useful for one-off CGI scripts.  Takes an optional hash argument for
+		# headers (Content-Type and Status are set by default).  See CGI#header
+		# for information on how the header hash should look.
+		def render_cgi(extra_headers = {})
+			h = { 
+				'type' => self.class.content_type,
+				'status' => 'OK',
+			}.merge(extra_headers)
+
+			CGI.new.out(h) { render }
 		end
 
 		# Dynamically add tags if the view class for this object is permissive.

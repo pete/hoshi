@@ -3,7 +3,5 @@ TODO for 1.0:
   names, and use a call to View#tag if not.
 * Separate the tags by close type in the various View sub-classes.  (The most
   tedious thing on the list, but required for compliance.)
-* Add some support for self-contained CGI scripts.  
-* Add self-contained CGI ENV script, the "Hello, World!" of CGI.
 * Waves integration.
 * RSS Sub-class of View?  Would be nice.
