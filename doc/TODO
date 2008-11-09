@@ -1,7 +1,8 @@
 TODO for 1.0:
 * Have html2hoshi run a simple regex to make sure the tags are all valid method
   names, and use a call to View#tag if not.
-* Separate the tags by type in the various Views.
+* Separate the tags by close type in the various View sub-classes.  (The most
+  tedious thing on the list, but required for compliance.)
 * Add some support for self-contained CGI scripts.  
 * Add self-contained CGI ENV script, the "Hello, World!" of CGI.
 * Waves integration.
