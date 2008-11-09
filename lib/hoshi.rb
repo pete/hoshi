@@ -10,7 +10,12 @@ require 'hoshi/view'
 module Hoshi
 	# This is a cosmetic method; you may do Hoshi::View[:type],
 	# Hoshi::View(:type), or Hoshi::View :type
-	def self.View(*a)
-		View[*a]
+	def self.View(*a, &b)
+		klass = View[*a]
+		if b
+			klass.build &b
+		else
+			klass
+		end
 	end
 end
