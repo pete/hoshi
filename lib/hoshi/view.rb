@@ -92,7 +92,7 @@ module Hoshi
 			!permissive?
 		end
 
-		# Create and render a view class via a block.
+		# Create and render a view via a block.
 		def self.build(&block)
 			c = new
 			c.instance_eval(&block)
