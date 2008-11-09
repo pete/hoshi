@@ -6,3 +6,4 @@ TODO for 1.0:
 * Add some support for self-contained CGI scripts.  
 * Add self-contained CGI ENV script, the "Hello, World!" of CGI.
 * Waves integration.
+* RSS Sub-class of View?
