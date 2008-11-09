@@ -99,6 +99,10 @@ module Hoshi
 			c.render
 		end
 
+		def self.content_type
+			nil
+		end
+
 		# Most of these files depend on the above method definitions.
 		Dir["#{File.dirname(__FILE__)}/view/*.rb"].each &method(:require)
 
