@@ -21,7 +21,7 @@ spec = Gem::Specification.new { |s|
 	s.summary = "Nice, object-oriented, first-class views."
 	s.homepage = "http://debu.gs/#{s.name}"
 	%w(facets metaid rubyful_soup).each &s.method(:add_dependency)
-	s.version = '0.1.0'
+	s.version = '0.1.1'
 }
 
 Rake::GemPackageTask.new(spec) { |pkg|

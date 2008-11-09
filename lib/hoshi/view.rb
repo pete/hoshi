@@ -92,18 +92,18 @@ module Hoshi
 			!permissive?
 		end
 
-		# Most of these files depend on the above method definitions.
-		Dir["#{File.dirname(__FILE__)}/view/*.rb"].each &method(:require)
-
-		def initialize
-			clear!
-		end
-
 		# Create and render a view class via a block.
 		def self.build(&block)
 			c = new
 			c.instance_eval(&block)
 			c.render
+		end
+
+		# Most of these files depend on the above method definitions.
+		Dir["#{File.dirname(__FILE__)}/view/*.rb"].each &method(:require)
+
+		def initialize
+			clear!
 		end
 
 		# Clears the current state of this view.
