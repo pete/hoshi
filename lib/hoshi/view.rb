@@ -99,6 +99,14 @@ module Hoshi
 			clear!
 		end
 
+		# Create and render a view class via a block.
+		def self.build(&block)
+			c = self.new
+			c.class.send(:define_method, :create, block)
+			c.create
+			c.render
+		end
+
 		# Clears the current state of this view.
 		def clear!
 			self.tree = []

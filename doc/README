@@ -28,6 +28,13 @@ or by downloading from github (http://github.com/pete/hoshi).
 
 == Usage
 
+These examples and more featured in the fabulous doc/examples directory.
+Also, there is a program included called html2hoshi (and associated
+lib/html2hoshi.rb; see Hoshi.from_html) that takes HTML as input and
+converts it to Ruby code using Hoshi.
+
+=== Class-based
+
 These should be fairly straightforward:
 
   require 'hoshi'
@@ -116,10 +123,28 @@ You can get a little more complicated:
 
   puts Fibonacci.new.list_page(n)
 
-These examples and more featured in the fabulous doc/examples directory.
-Also, there is a program included called html2hoshi (and associated
-lib/html2hoshi.rb; see Hoshi.from_html) that takes HTML as input and
-converts it to Ruby code using Hoshi.
+=== Block-based
+
+For simpler cases where you only intend to produce markup, perhaps for use as a templating engine.
+
+  require 'hoshi'
+
+  str = Hoshi::View::HTML4.build {
+    doctype
+    html {
+      head {
+        title "Hello, world!"
+        link :rel => 'stylesheet', :href => '/css/hoshi.css'
+      }
+
+      body {
+        h1 "Hello, world!"
+        p "This is a greeting to the world."
+      }
+    }
+  }
+
+  puts str
 
 == Bugs
 
