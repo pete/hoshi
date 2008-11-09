@@ -6,7 +6,7 @@ require 'rubygems'
 require 'hoshi'
 
 qstring = ENV.delete 'QUERY_STRING'
-query = CGI.parse qstring
+query = CGI.parse qstring if qstring
 
 Hoshi::View(:html4) {
 	doc {
