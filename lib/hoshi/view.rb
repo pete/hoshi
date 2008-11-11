@@ -21,20 +21,14 @@ module Hoshi
 		# 	tag('h1')
 		# 	def show_an_h1
 		# 		h1 "I have been shown"
-		# 		render
 		# 	end
 		def self.tag(name, close_type = nil)
-			tag = Tag.new(name, close_type)
 			define_method(name) { |*opts,&b|
 				if b
-					old, self.current = current, []
-					b.call
-					inside, self.current = current.map(&:to_s).join, old
+					tag name, close_type, *opts, &b
 				else
-					inside = opts.shift if opts.first.kind_of?(String)
+					tag name, close_type, *opts
 				end
-
-				append! tag.render(inside, opts.first || {})
 			}
 		end
 
@@ -130,8 +124,18 @@ module Hoshi
 
 		# Appends a tag to the current document, for when a tag is only needed
 		# once or has a name that is not a valid method name.
-		def tag(tname, close_type = nil, inside = nil, opts = {})
-			append! Tag.new(tname, close_type).render(inside, opts)
+		def tag(tname, close_type = nil, *opts, &b)
+			t = Tag.new(tname, close_type)
+
+			if b
+				old, self.current = current, []
+				b.call
+				inside, self.current = current.map(&:to_s).join, old
+			else
+				inside = opts.shift if opts.first.kind_of?(String)
+			end
+
+			append! t.render(inside, opts.first || {})
 		end
 
 		# Appends something to the document.  The comment, decl, and various
@@ -178,10 +182,14 @@ module Hoshi
 		end
 
 		# Dynamically add tags if the view class for this object is permissive.
-		def method_missing(mname, *args)
+		def method_missing(mname, *args, &b)
 			if self.class.permissive?
 				self.class.tag mname
-				send mname, *args
+				if b
+					send mname, *args, &b
+				else
+					send mname, *args
+				end
 			else
 				super
 			end
