@@ -17,7 +17,7 @@ spec = Gem::Specification.new { |s|
 	Dir['bin/*'].map(&File.method(:basename)).map(&s.executables.method(:<<))
 
 	s.name = 'hoshi'
-	s.rubyforge_project = 'hoshi'
+	s.rubyforge_project = 'hoshi-view'
 	s.summary = "Nice, object-oriented, first-class views."
 	s.homepage = "http://debu.gs/#{s.name}"
 	%w(facets metaid hpricot).each &s.method(:add_dependency)
