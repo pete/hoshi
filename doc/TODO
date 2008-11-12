@@ -1,9 +1,9 @@
 TODO for 1.0:
 * Separate the tags by close type in the various View sub-classes.  (The most
   tedious thing on the list, but required for compliance.)
-* RSS Sub-class of View?  Would be nice.
 
 TODO for later:
 * Have html2hoshi do a smarter job of deciding doctypes, not using permissive!
   so much.
 * View logic helpers.
+* Ooh, ooh, SVG!

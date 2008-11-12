@@ -77,7 +77,7 @@ module Hoshi
 		end
 
 		# Only the tags already specified are allowed.  No dynamic tag
-		# creation.
+		# creation.  This is the default.
 		def self.strict!
 			@permissive = false
 		end
