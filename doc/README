@@ -5,7 +5,7 @@
 Hoshi is a library for creating real first-class HTML/XML views.  So,
 unlike template libraries, you can take advantage of mixins,
 inheritance, and all the other wonderful features of Ruby's object
-system.
+system.  There is also support for easy RSS feeds and CGI.
 
 Hoshi is designed to:
 	* Generate clean HTML/XHTML/XML with minimal effort
