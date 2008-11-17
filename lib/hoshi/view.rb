@@ -52,7 +52,7 @@ module Hoshi
 			doctype = doctype.to_s.downcase.gsub('_', '')
 			const_get(constants.find { |c| 
 				cl = const_get c
-				cl.ancestors.include?(self) && c.downcase == doctype
+				cl.ancestors.include?(self) && c.to_s.downcase == doctype
 			}) rescue nil
 		end
 
