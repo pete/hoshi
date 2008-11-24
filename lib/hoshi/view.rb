@@ -23,13 +23,15 @@ module Hoshi
 		# 		h1 "I have been shown"
 		# 	end
 		def self.tag(name, close_type = nil)
-			define_method(name) { |*opts,&b|
-				if b
-					tag name, close_type, *opts, &b
-				else
-					tag name, close_type, *opts
+			class_eval <<-EOHACK
+				def #{name}(*opts, &b)
+					if b
+						tag #{name.inspect}, #{close_type.inspect}, *opts, &b
+					else
+						tag #{name.inspect}, #{close_type.inspect}, *opts, &b
+					end
 				end
-			}
+			EOF
 		end
 
 		# A short-hand for creating multiple tags via View.tag.  For tags that
