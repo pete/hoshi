@@ -31,7 +31,7 @@ module Hoshi
 						tag #{name.inspect}, #{close_type.inspect}, *opts, &b
 					end
 				end
-			EOF
+			EOHACK
 		end
 
 		# A short-hand for creating multiple tags via View.tag.  For tags that
