@@ -20,8 +20,8 @@ spec = Gem::Specification.new { |s|
 	s.rubyforge_project = 'hoshi-view'
 	s.summary = "Nice, object-oriented, first-class views."
 	s.homepage = "http://debu.gs/#{s.name}"
-	%w(facets metaid hpricot).each &s.method(:add_dependency)
-	s.version = '0.1.3'
+	%w(metaid hpricot).each &s.method(:add_dependency)
+	s.version = '0.1.4'
 }
 
 Rake::GemPackageTask.new(spec) { |pkg|
@@ -29,6 +29,6 @@ Rake::GemPackageTask.new(spec) { |pkg|
 }
 
 task(:install => :package) { 
-	g = Dir['pkg/*.gem'].sort.last
+	g = "pkg/#{spec.name}-#{spec.version}.gem"
 	system "gem install -l #{g}"
 }
