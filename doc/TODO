@@ -1,6 +1,7 @@
 TODO for 1.0:
 * Separate the tags by close type in the various View sub-classes.  (The most
   tedious thing on the list, but required for compliance.)
+* Still not too happy about the way RSS feeds are done, going to rework.
 
 TODO for later:
 * Have html2hoshi do a smarter job of deciding doctypes, not using permissive!

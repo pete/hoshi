@@ -29,6 +29,6 @@ Rake::GemPackageTask.new(spec) { |pkg|
 }
 
 task(:install => :package) { 
-	g = Dir['pkg/*.gem'].sort.last
+	g = "pkg/#{spec.name}-#{spec.version}.gem"
 	system "gem install -l #{g}"
 }

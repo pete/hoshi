@@ -1,4 +1,3 @@
-require 'facets/symbol'
 require 'hoshi/monkey_patches'
 
 require 'hoshi/tag'
