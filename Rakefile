@@ -20,6 +20,7 @@ spec = Gem::Specification.new { |s|
 	s.rubyforge_project = 'hoshi-view'
 	s.summary = "Nice, object-oriented, first-class views."
 	s.homepage = "http://debu.gs/#{s.name}"
+	s.required_ruby_version = '>= 1.8.7'
 	%w(metaid hpricot).each &s.method(:add_dependency)
 	s.version = '0.1.4'
 }
