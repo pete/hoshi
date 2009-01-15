@@ -12,5 +12,12 @@ class Hoshi::View
 		def cdata str
 			append! "<![CDATA[\n" + str + "\n]]>"
 		end
+
+		# Includes the stylesheets from the list passed as arguments.
+		def css_includes *ss
+			ss.each { |s|
+				link :rel => 'stylesheet', :media => 'all', :href => s
+			}
+		end
 	end
 end
