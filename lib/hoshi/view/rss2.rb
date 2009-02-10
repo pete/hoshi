@@ -22,7 +22,7 @@ class Hoshi::View
 			self.channel_block = b
 		end
 
-		def def_item &b
+		def each_item &b
 			self.item_block = b
 		end
 
