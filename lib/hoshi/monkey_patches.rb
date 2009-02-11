@@ -6,3 +6,13 @@ class Hash
 		map { |k,v| "#{k}=#{qchar}#{v}#{qchar}" }.join(' ')
 	end
 end
+
+# We've dropped facets, and are now shooting for compatibility across Ruby
+# versions, so we add Symbol#to_proc unless it exists.
+unless((Symbol.instance_method(:to_proc) rescue nil))
+	class Symbol
+		def to_proc
+			proc { |obj, *args| obj.send(self, *args) }
+		end
+	end
+end
