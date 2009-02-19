@@ -121,8 +121,8 @@ module Hoshi
 				old, self.current = current, []
 				b.call
 				inside, self.current = current.map(&:to_s).join, old
-			else
-				inside = opts.shift if opts.first.kind_of?(String)
+			elsif opts.first.kind_of? String
+				inside = CGI.escapeHTML(opts.shift)
 			end
 
 			append! t.render(inside, opts.first || {})
