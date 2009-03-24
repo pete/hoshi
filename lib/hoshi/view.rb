@@ -78,8 +78,8 @@ module Hoshi
 		end
 
 		# Create and render a view via a block.
-		def self.build(&block)
-			c = new
+		def self.build(*args, &block)
+			c = new(*args)
 			c.instance_eval(&block)
 			c.render
 		end
