@@ -10,7 +10,7 @@ module Hoshi
 					if b
 						tag #{name.inspect}, #{close_type.inspect}, *opts, &b
 					else
-						tag #{name.inspect}, #{close_type.inspect}, *opts, &b
+						tag #{name.inspect}, #{close_type.inspect}, *opts
 					end
 				end
 			EOHACK
