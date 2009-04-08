@@ -91,7 +91,7 @@ module Hoshi
 		end
 
 		# Most of these files depend on the above method definitions.
-		Dir["#{File.dirname(__FILE__)}/view/*.rb"].each &method(:require)
+		Dir["#{File.dirname(__FILE__)}/view/*.rb"].each  { |view| require view }
 
 		def initialize
 			clear!
