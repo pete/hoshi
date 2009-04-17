@@ -10,7 +10,7 @@ class Hoshi::View
 				 form frame frameset h1 h2 h3 h4 h5 h6 head hr html iframe img
 				 input isindex label legend li link map meta noframes noscript
 				 object ol optgroup option p param pre q script select span
-				 style table tbody textarea tfoot thead title tr td ul)
+				 style table tbody textarea tfoot thead title tr td ul nobr)
 		open_tags *%w(br)
 	end
 end
