@@ -17,5 +17,4 @@ puts(Hoshi::View(:html4) {
 
 		}
 	}
-	render
 })
