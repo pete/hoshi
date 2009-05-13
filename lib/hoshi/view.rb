@@ -123,7 +123,7 @@ module Hoshi
 
 			if b
 				old, self.current = current, []
-				# These two lines let you can do 'asdf { "jkl" }' like Markaby.
+				# These two lines let you do 'asdf { "jkl" }' like Markaby.
 				r = b.call
 				current << r.to_s if current.empty?
 				inside, self.current = current.map(&:to_s).join, old
