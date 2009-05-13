@@ -14,6 +14,8 @@ module Hoshi
 					end
 				end
 			EOHACK
+			# Inline tags.
+			define_method("_#{name}") { |*opts| _tag name, close_type, *opts }
 		end
 	end
 end
