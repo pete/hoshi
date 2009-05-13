@@ -15,6 +15,8 @@ module Hoshi
 					tag name, close_type, *opts
 				end
 			}
+			# Inline tags.
+			define_method("_#{name}") { |*opts| _tag name, close_type, *opts }
 		end
 	end
 end

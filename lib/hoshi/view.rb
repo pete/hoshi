@@ -112,6 +112,10 @@ module Hoshi
 			end
 		end
 
+		def entity e
+			raw "&#{e};"
+		end
+
 		# Appends a tag to the current document, for when a tag is only needed
 		# once or has a name that is not a valid method name.
 		def tag(tname, close_type = nil, *opts, &b)
@@ -126,6 +130,14 @@ module Hoshi
 			end
 
 			append! t.render(inside, opts.first || {})
+		end
+
+		# An inline tag; it just returns a string rather than updating the
+		# view object in place.  Useful for things like
+		# 	p "Here is a paragraph and a #{_a 'link', :href => '/'}."
+		def _tag(tname, close_type = nil, inside = '', opts = {})
+			t = Tag.new(tname, close_type)
+			t.render(inside, opts)
 		end
 
 		# Appends something to the document.  The comment, decl, and various
