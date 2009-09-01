@@ -1,7 +1,6 @@
 require 'rake/gempackagetask'
 require 'rake/rdoctask'
 
-
 spec = Gem::Specification.new { |s|
 	s.platform = Gem::Platform::RUBY
 
@@ -31,4 +30,8 @@ Rake::GemPackageTask.new(spec) { |pkg|
 task(:install => :package) { 
 	g = "pkg/#{spec.name}-#{spec.version}.gem"
 	system "sudo gem install -l #{g}"
+}
+
+task(:test) {
+	system "ruby test/run.rb"
 }
