@@ -32,6 +32,10 @@ module Hoshi
 			names.map { |n| tag n, :none }
 		end
 
+		def self.self_closing_tags *names
+			names.map { |n| tag n, :self }
+		end
+
 		# This method choses, based on the provided doctype, the proper
 		# sub-class of View.  Generally, you'll be using this rather than
 		# sub-classing View directly.  The doctype argument is case- and
