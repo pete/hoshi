@@ -2,7 +2,7 @@
 
 == Summary
 
-Hoshi is a library for creating real first-class HTML/XML views.  So,
+Hoshi is a library for creating real, first-class HTML/XML views.  So,
 unlike template libraries, you can take advantage of mixins,
 inheritance, and all the other wonderful features of Ruby's object
 system.  There is also support for easy RSS feeds and CGI.
@@ -39,7 +39,7 @@ These should be fairly straightforward:
 
   require 'hoshi'
 
-  class Trivial < Hoshi::View :html4
+  class Trivial < Hoshi::View :html5
     def show
       doctype
       html {
@@ -129,7 +129,7 @@ For simpler cases where you only intend to produce markup, perhaps for use as a 
 
   require 'hoshi'
 
-  str = Hoshi::View::HTML4.build {
+  str = Hoshi::View::HTML5.build {
     doctype
     html {
       head {
@@ -148,15 +148,20 @@ For simpler cases where you only intend to produce markup, perhaps for use as a 
 
 == Bugs
 
-There needs to be some work done on correcting the tags.
+There needs to be some work done on correcting the tags; I suspect I'm
+missing or miscategorizing some of them.  I'd also like to perhaps add a
+layer for serializing objects in the standard HTML5 method.
 
 == Credits
 
 Author:
-Pete Elmore -- (pete.elmore(a)gmail.com)
+Pete Elmore -- (pete(a)debu.gs)
 
-Initial Design:
-Dan Yoder -- (danyoder(a)mac.com)
+Pretty heavily indebted to:
+_why the lucky stiff's Markaby library
+
+Initial design discussion:
+Dan Yoder
 
 Simple block version:
 Nolan Darilek -- (nolan(a)thewordnerd.info)
@@ -164,8 +169,8 @@ Nolan Darilek -- (nolan(a)thewordnerd.info)
 Homie that be lookin' out for my broken deps:
 Lars Lethonen
 
-The guys that paid me to do this:
-AT&T Interactive.  (By the way, email me if you want to come work here.)
+The guys that paid me to do the initial version:
+AT&T Interactive.
 
 Also, I guess I should credit Attractive Eighties Women
 (http://attractiveeightieswomen.com/), since I was blasting them the
@@ -173,7 +178,7 @@ whole time I was developing this.  Like, over and over.  I couldn't stop
 listening.  My friends and family are becoming concerned.  I don't feel
 that I am yet ready to take the first step by admitting there is a
 problem.  Intervention may be required.  This paragraph should probably
-be considered a cry for help.  Also Hoshi will never depend on a library called Bobocat, and you can definitely take that to the bank.
+be considered a cry for help.
 
 == Home page
 

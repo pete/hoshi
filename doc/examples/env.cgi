@@ -2,7 +2,6 @@
 
 # Perl, eat your heart out.
 
-require 'rubygems'
 require 'hoshi'
 
 qstring = ENV.delete 'QUERY_STRING'

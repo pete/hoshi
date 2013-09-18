@@ -1,11 +1,11 @@
-require 'rake/gempackagetask'
-require 'rake/rdoctask'
+require 'rubygems/package_task'
+require 'rdoc/task'
 
 spec = Gem::Specification.new { |s|
 	s.platform = Gem::Platform::RUBY
 
 	s.author = "Pete Elmore"
-	s.email = "pete.elmore@gmail.com"
+	s.email = "pete@debu.gs"
 	s.files = Dir["{lib,doc,bin,ext}/**/*"].delete_if {|f| 
 		/\/rdoc(\/|$)/i.match f
 	} + %w(Rakefile)
@@ -20,10 +20,10 @@ spec = Gem::Specification.new { |s|
 	s.summary = "Nice, object-oriented, first-class views."
 	s.homepage = "http://debu.gs/#{s.name}"
 	%w(metaid hpricot).each &s.method(:add_dependency)
-	s.version = '0.2.1'
+	s.version = '1.0.0'
 }
 
-Rake::GemPackageTask.new(spec) { |pkg|
+Gem::PackageTask.new(spec) { |pkg|
 	pkg.need_tar_bz2 = true
 }
 
