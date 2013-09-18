@@ -3,7 +3,7 @@ require 'hoshi'
 class TestView < Hoshi::View :html
 	tags *%w(regular)
 	open_tags *%w(open)
-	self_closing_tags *%(closer) # The only for whom coffee is.
+	self_closing_tags *%(closer) # The only ones for whom coffee is.
 end
 
 class ViewTest < Test::Unit::TestCase
