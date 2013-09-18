@@ -15,8 +15,9 @@ Hoshi is designed to:
 
 It is semi-modeled after Markaby, but with a much more straightforward
 implementation and different semantics (e.g., no instance_eval, so scope
-inside a tag is as expected).  Hoshi also allows a tag to follow another
-tag without requiring any <<, +, or +=.
+inside a tag is as expected).
+
+See doc/LICENSE for the license, doc/examples for examples.
 
 == Installation
 
