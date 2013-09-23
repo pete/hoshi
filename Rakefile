@@ -8,7 +8,7 @@ spec = Gem::Specification.new { |s|
 	s.email = "pete@debu.gs"
 	s.files = Dir["{lib,doc,bin,ext}/**/*"].delete_if {|f| 
 		/\/rdoc(\/|$)/i.match f
-	} + %w(Rakefile)
+	} + %w(Rakefile README)
 	s.require_path = 'lib'
 	s.has_rdoc = true
 	s.extra_rdoc_files = Dir['doc/*'].select(&File.method(:file?))
@@ -20,7 +20,7 @@ spec = Gem::Specification.new { |s|
 	s.summary = "Nice, object-oriented, first-class views."
 	s.homepage = "http://debu.gs/#{s.name}"
 	%w(metaid hpricot).each &s.method(:add_dependency)
-	s.version = '1.0.0'
+	s.version = '1.0.1'
 }
 
 Gem::PackageTask.new(spec) { |pkg|

@@ -1,9 +1,15 @@
 class Hash
 	# Makes this hash fit to be put into a tag.
-	# { :a => 1, :b => "two" }.to_html_options # => 'a="one" b="two"'
+	# { :a => 1, :b => "two", :c => true }.to_html_options # => 'a="one" b="two" c'
 	def to_html_options double_quotes = true
 		qchar = double_quotes ? '"' : "'"
-		map { |k,v| "#{k}=#{qchar}#{v}#{qchar}" }.join(' ')
+		map { |k,v|
+			if v == true
+				k.to_s
+			else
+				"#{k}=#{qchar}#{v}#{qchar}"
+			end
+		}.join(' ')
 	end
 end
 

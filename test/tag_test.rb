@@ -6,6 +6,8 @@ class TagTest < Test::Unit::TestCase
 		t = Tag.new('tag')
 		assert_equal '<tag></tag>', t.render
 		assert_equal '<tag>a</tag>', t.render('a')
+		assert_equal '<tag k="v"></tag>', t.render(nil, 'k' => 'v')
+		assert_equal '<tag k></tag>', t.render(nil, 'k' => true)
 
 		t = Tag.new('tag', :self)
 		assert_equal '<tag />', t.render
@@ -14,5 +16,7 @@ class TagTest < Test::Unit::TestCase
 		t = Tag.new('tag', :none)
 		assert_equal "<tag>\n", t.render
 		assert_equal "<tag>a\n", t.render('a')
+		assert_equal "<tag k=\"v\">\n", t.render(nil, 'k' => 'v')
+		assert_equal "<tag k>\n", t.render(nil, 'k' => true)
 	end
 end

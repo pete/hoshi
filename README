@@ -150,8 +150,16 @@ For simpler cases where you only intend to produce markup, perhaps for use as a 
 == Bugs
 
 There needs to be some work done on correcting the tags; I suspect I'm
-missing or miscategorizing some of them.  I'd also like to perhaps add a
-layer for serializing objects in the standard HTML5 method.
+missing or miscategorizing some of them.
+
+I'd like to perhaps add a layer for serializing objects in the standard
+HTML5 method (i.e., the Schema.org/microdata stuff).  That's very
+speculative at the moment.
+
+There are some requirements that were expedient at the time (requiring
+metaid and hpricot, embedding the gemspec in the Rakefile, etc.) that
+could use cleanup.  Hash is monkey-patched, and using the new Ruby 2
+refinements feature would be nicer.
 
 == Credits
 
