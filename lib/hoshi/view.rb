@@ -1,11 +1,7 @@
 require 'metaid'
 require 'cgi'
 
-begin
-	require 'hoshi/view-tag'
-rescue SyntaxError
-	require 'hoshi/view-tag-fallback'
-end
+require 'hoshi/view-tag'
 
 module Hoshi
 	# The View class is the super-class for views you create with Hoshi.  More

@@ -19,4 +19,9 @@ class TagTest < Test::Unit::TestCase
 		assert_equal "<tag k=\"v\">\n", t.render(nil, 'k' => 'v')
 		assert_equal "<tag k>\n", t.render(nil, 'k' => true)
 	end
+
+	def test_quoted_values
+		t = Tag.new('tag', :none)
+		assert_equal "<tag k=\"&quot;\">\n", t.render(nil, 'k' => '"')
+	end
 end

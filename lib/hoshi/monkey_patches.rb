@@ -10,7 +10,7 @@ class Hash
 			if v == true # Intentional.
 				k.to_s
 			else
-				"#{k}=#{qchar}#{v}#{qchar}"
+				"#{k}=#{qchar}#{v.to_s.gsub(qchar, CGI.escapeHTML(qchar))}#{qchar}"
 			end
 		}.join(' ')
 	end
