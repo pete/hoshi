@@ -25,7 +25,7 @@ module Hoshi
 		def render(inside = nil, opts = {})
 			inside = inside.to_s
 
-			s = "<#{name} #{opts.to_html_options}".strip
+			s = "<#{name} #{opts.to_html_options}"
 			if inside.empty? && close_type == :self
 				return s << " />"
 			end
