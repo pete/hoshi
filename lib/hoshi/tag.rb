@@ -26,6 +26,7 @@ module Hoshi
 			inside = inside.to_s
 
 			s = "<#{name} #{opts.to_html_options}"
+			s.chomp! ' '
 			if inside.empty? && close_type == :self
 				return s << " />"
 			end
