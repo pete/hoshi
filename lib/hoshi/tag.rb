@@ -23,15 +23,16 @@ module Hoshi
 		# gets you this:
 		#   <div onclick="alert('Hi.');">Click for an alert.</div>
 		def render(inside = nil, opts = {})
-			inside = inside.to_s
+			inside = inside
 
 			s = "<#{name} #{opts.to_html_options}"
 			s.chomp! ' '
-			if inside.empty? && close_type == :self
+			if((!inside || inside.empty?) && close_type == :self)
 				return s << " />"
 			end
 
-			s << ">" << inside
+			s << ">"
+			s << inside if inside
 
 			if close_type == :none
 				s << "\n"

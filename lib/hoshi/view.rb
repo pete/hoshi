@@ -94,6 +94,7 @@ module Hoshi
 		Dir["#{File.dirname(__FILE__)}/view/*.rb"].each  { |view| require view }
 
 		def initialize
+			@tcache = {}
 			clear!
 		end
 
@@ -101,6 +102,10 @@ module Hoshi
 		def clear!
 			self.tree = []
 			self.current = tree
+		end
+
+		def otag(*a)
+			@tcache[a] ||= Tag.new(*a)
 		end
 
 		# Adds a comment.
@@ -119,7 +124,7 @@ module Hoshi
 		# Appends a tag to the current document, for when a tag is only needed
 		# once or has a name that is not a valid method name.
 		def tag(tname, close_type = nil, *opts, &b)
-			t = Tag.new(tname, close_type)
+			t = otag(tname, close_type)
 
 			if b
 				old, self.current = current, []
@@ -138,7 +143,7 @@ module Hoshi
 		# view object in place.  Useful for things like
 		# 	p "Here is a paragraph and a #{_a 'link', :href => '/'}."
 		def _tag(tname, close_type = nil, inside = '', opts = {})
-			t = Tag.new(tname, close_type)
+			t = otag(tname, close_type)
 			t.render(inside, opts)
 		end
 
