@@ -1,6 +1,6 @@
 require 'hoshi'
 
-str = Hoshi::View::HTML4.build {
+str = Hoshi::View::HTML5.build {
 	doctype
 	html {
 		head {
