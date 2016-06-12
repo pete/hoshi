@@ -1,4 +1,3 @@
-require 'metaid'
 require 'cgi'
 
 require 'hoshi/view-tag'
@@ -7,7 +6,7 @@ module Hoshi
 	# The View class is the super-class for views you create with Hoshi.  More
 	# likely, though, you'll be using one of View's many sub-classes as the
 	# super-class for your view, like this:
-	#   class MyView < Hoshi::View :html4
+	#   class MyView < Hoshi::View :html5
 	# or
 	#   class MyView < Hoshi::View::XHTML1Frameset
 	# Of course, using View[] is the preferred method for the sake of brevity.
