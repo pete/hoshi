@@ -2,22 +2,26 @@
 
 == Summary
 
-Hoshi is a library for creating real, first-class HTML/XML views.  So,
-unlike template libraries, you can take advantage of mixins,
-inheritance, and all the other wonderful features of Ruby's object
-system.  There is also support for RSS2, CGI, and SVG.
+Hoshi is a library for creating real, first-class HTML/XML views.  It is a
+generator, so unlike template libraries, you can take advantage of mixins,
+inheritance, and all the other wonderful features of Ruby's object system.
+
+In addition to HTML5 and plain XML, Hoshi supports RSS2 and SVG, as well as some
+older standards like HTML4 and XHTML1.  (If you need anything more specific, it
+is easy to extend, and if you want to contribute, patches are welcome.)
 
 Hoshi is designed to:
-	* Generate clean HTML/XHTML/XML with minimal effort
-	* Be easy for a coder to use and understand
+	* Generate clean HTML/XML with minimal effort
+	* Be simple, to avoid bugs and keep it easy to use, understand, and modify
 	* Take full advantage of Ruby's object sytem
 	* Be more readable and easier to write than bare HTML
 
-It is semi-modeled after Markaby, but with a much more straightforward
-implementation and different semantics (e.g., no instance_eval, so scope
-inside a tag works as expected).
+It was initially inspired by (and partially modeled on) Markaby, but the
+implementation is more straightforward so the semantics are cleaner (e.g., no
+instance_eval, meaning scope inside blocks supplied to tags has no gotcha's).
 
-See doc/LICENSE for the license, doc/examples for examples.
+See doc/LICENSE for the license, doc/examples for examples.  See test/ for the
+tests.
 
 == Installation
 
@@ -29,7 +33,7 @@ or by downloading from github (http://github.com/pete/hoshi).
 
 == Usage
 
-These examples and more featured in the fabulous doc/examples directory.
+These examples 
 Also, there is a program included called html2hoshi (and associated
 lib/html2hoshi.rb; see Hoshi.from_html) that takes HTML as input and
 converts it to Ruby code using Hoshi.
@@ -46,7 +50,7 @@ These should be fairly straightforward:
       html {
         head {
           title "Hello, world!"
-          link :rel => 'stylesheet', :href => '/css/hoshi.css'
+          link rel: 'stylesheet', href: '/css/hoshi.css'
         }
 
         body {
@@ -71,13 +75,13 @@ You can get a little more complicated:
       html {
         head {
           title t
-          script(:type => 'text/javascript') {
+          script(type: 'text/javascript') {
             raw "alert(\"Hi, I'm some javascript, I suppose.\");"
           }
         }
         
         body {
-          h1 t, :class => 'page_title'
+          h1 t, class: 'page_title'
 
           yield
         }
@@ -92,7 +96,6 @@ You can get a little more complicated:
       }
     end
   end
-
 
   class Fibonacci < Hoshi::View :xhtml1
     include Layout
@@ -126,7 +129,8 @@ You can get a little more complicated:
 
 === Block-based
 
-For simpler cases where you only intend to produce markup, perhaps for use as a templating engine.
+For simpler cases where you just need to produce a little markup.  Useful for
+small scripts.
 
   require 'hoshi'
 
@@ -135,7 +139,7 @@ For simpler cases where you only intend to produce markup, perhaps for use as a 
     html {
       head {
         title "Hello, world!"
-        link :rel => 'stylesheet', :href => '/css/hoshi.css'
+        link rel: 'stylesheet', href: '/css/hoshi.css'
       }
 
       body {
@@ -150,16 +154,18 @@ For simpler cases where you only intend to produce markup, perhaps for use as a 
 == Bugs
 
 There needs to be some work done on correcting the tags; I suspect I'm missing
-or miscategorizing some of them.
+or miscategorizing some of them.  If you come across a case where Hoshi emits
+invalid HTML/XML/etc., please let me know.
 
-That's the only one likely to affect you.  See doc/TODO for a better list.
+That's the only known bug likely to affect you.  See doc/TODO for a more
+detailed roadmap.
 
 == Credits
 
 Author:
 Pete Elmore, Rekka Labs -- ( pete(a)debu.gs )
 
-Pretty heavily indebted to:
+The initial design is pretty heavily indebted to:
 _why the lucky stiff's Markaby library
 
 Simple block version:
@@ -170,10 +176,10 @@ Lars Lethonen, opsangeles -- ( http://opsangeles.com/ )
 Hunter, Spore Labs -- ( https://github.com/madhermit )
 
 The guys that paid me to do the initial version:
-AT&T Interactive.  (Now yp.com)
+AT&T Interactive.  (Now yp.com; they have changed names and owners.)
 
 The company that covers development now:
-Rekka Labs -- http://rekka.io/
+Rekka Labs -- http://rekka.io/  (Yes, you can hire us.)
 
 Also, I guess I should credit Attractive Eighties Women
 (http://attractiveeightieswomen.com/), since I was blasting them the

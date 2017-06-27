@@ -1,5 +1,6 @@
 TODO:
 · Still not too happy about the way RSS feeds are done, going to rework.
+· I do not use Atom as often as I use RSS, but Atom support would be nice.
 · Fix some of the heuristics, default to safe() rather than raw() more often.
   This is based on usage, but it breaks compatibility, so it'll require
   some caution.  (Possibly make it configurable or part of blocks' state.)
@@ -8,7 +9,8 @@ Ongoing:
 · Separate the tags by close type in the various View sub-classes.  (The most
   tedious thing on the list, but required for compliance.) My current strategy
   is to run things through validator.w3c.org and whenever it complains, I change
-  the tag.
+  the tag.  Most of the HTML I do nowadays is HTML5, so the older versions of
+  HTML no longer get checked very often.
 
 Speculative (i.e., these may be bad ideas and they might not ever get done):
 · HTML5 microdata serialization using Schema.org conventions.  This should
