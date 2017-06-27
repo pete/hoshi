@@ -3,7 +3,6 @@ TODO:
 · Fix some of the heuristics, default to safe() rather than raw() more often.
   This is based on usage, but it breaks compatibility, so it'll require
   some caution.  (Possibly make it configurable or part of blocks' state.)
-· SVG, when I come up with (or someone else suggests) a reasonable API.
 
 Ongoing:
 · Separate the tags by close type in the various View sub-classes.  (The most
