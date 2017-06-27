@@ -1,6 +1,7 @@
 TODO:
 · Still not too happy about the way RSS feeds are done, going to rework.
 · I do not use Atom as often as I use RSS, but Atom support would be nice.
+· html2hoshi should move to its own gem.
 · Fix some of the heuristics, default to safe() rather than raw() more often.
   This is based on usage, but it breaks compatibility, so it'll require
   some caution.  (Possibly make it configurable or part of blocks' state.)
@@ -19,7 +20,5 @@ Speculative (i.e., these may be bad ideas and they might not ever get done):
   Ideally, they end up presenting the same API, so changing a parent class
   or a mixin is all that is needed to change frameworks.
 · Integrate HTML validation into the tests, and make some validation tests.
-· html2hoshi should possibly move to its own gem.
-· html2hoshi uses hpricot.  (hpricot still works fine, though.)
 · Expanding the DSL for views.  There are not a lot of things I've missed in
   the API so far, though, and the special-cased things are largely unused.

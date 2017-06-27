@@ -21,7 +21,8 @@ implementation is more straightforward so the semantics are cleaner (e.g., no
 instance_eval, meaning scope inside blocks supplied to tags has no gotcha's).
 
 See doc/LICENSE for the license, doc/examples for examples.  See test/ for the
-tests.
+tests, and run `rake test` to execute them.  (The tests take a fraction of a
+second to execute.)
 
 == Installation
 
