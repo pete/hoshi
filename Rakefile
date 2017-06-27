@@ -28,7 +28,7 @@ Gem::PackageTask.new(spec) { |pkg|
 
 task(:install => :package) { 
 	g = "pkg/#{spec.name}-#{spec.version}.gem"
-	system "sudo gem install -l #{g}"
+	system "gem install -l #{g}"
 }
 
 task(:test) {
