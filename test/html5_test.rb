@@ -11,8 +11,6 @@ class HTML5Test < Test::Unit::TestCase
 	end
 
 	def test_some_tags
-		v = Hoshi::View(:html5).new
-		s = Class.new(Hoshi::View(:html5)).new
 		%i(
 			hr
 			br
