@@ -5,7 +5,7 @@
 Hoshi is a library for creating real, first-class HTML/XML views.  So,
 unlike template libraries, you can take advantage of mixins,
 inheritance, and all the other wonderful features of Ruby's object
-system.  There is also support for easy RSS feeds and CGI.
+system.  There is also support for RSS2, CGI, and SVG.
 
 Hoshi is designed to:
 	* Generate clean HTML/XHTML/XML with minimal effort
@@ -15,7 +15,7 @@ Hoshi is designed to:
 
 It is semi-modeled after Markaby, but with a much more straightforward
 implementation and different semantics (e.g., no instance_eval, so scope
-inside a tag is as expected).
+inside a tag works as expected).
 
 See doc/LICENSE for the license, doc/examples for examples.
 
@@ -157,22 +157,23 @@ That's the only one likely to affect you.  See doc/TODO for a better list.
 == Credits
 
 Author:
-Pete Elmore -- (pete(a)debu.gs)
+Pete Elmore, Rekka Labs -- ( pete(a)debu.gs )
 
 Pretty heavily indebted to:
 _why the lucky stiff's Markaby library
 
-Initial design discussion:
-Dan Yoder
-
 Simple block version:
 Nolan Darilek -- (nolan(a)thewordnerd.info)
 
-Homie that be lookin' out for my broken deps:
-Lars Lethonen
+Friends that have reported bugs:
+Lars Lethonen, opsangeles -- ( http://opsangeles.com/ )
+Hunter, Spore Labs -- ( https://github.com/madhermit )
 
 The guys that paid me to do the initial version:
-AT&T Interactive.
+AT&T Interactive.  (Now yp.com)
+
+The company that covers development now:
+Rekka Labs -- http://rekka.io/
 
 Also, I guess I should credit Attractive Eighties Women
 (http://attractiveeightieswomen.com/), since I was blasting them the
