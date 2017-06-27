@@ -19,7 +19,7 @@ spec = Gem::Specification.new { |s|
 	s.summary = "Nice, object-oriented, first-class views."
 	s.homepage = "http://debu.gs/#{s.name}"
 	%w(hpricot).each &s.method(:add_dependency)
-	s.version = '1.1.1'
+	s.version = '1.1.2'
 }
 
 Gem::PackageTask.new(spec) { |pkg|
