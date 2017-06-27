@@ -8,6 +8,7 @@ class TagTest < Test::Unit::TestCase
 		assert_equal '<tag>a</tag>', t.render('a')
 		assert_equal '<tag k="v"></tag>', t.render(nil, 'k' => 'v')
 		assert_equal '<tag k></tag>', t.render(nil, 'k' => true)
+		assert_equal "<tag></tag>", t.render(nil, k: false)
 
 		t = Tag.new('tag', :self)
 		assert_equal '<tag />', t.render
@@ -18,6 +19,7 @@ class TagTest < Test::Unit::TestCase
 		assert_equal "<tag>a\n", t.render('a')
 		assert_equal "<tag k=\"v\">\n", t.render(nil, 'k' => 'v')
 		assert_equal "<tag k>\n", t.render(nil, 'k' => true)
+		assert_equal "<tag>\n", t.render(nil, k: false)
 	end
 
 	def test_quoted_values
