@@ -1,7 +1,5 @@
 require 'cgi'
 
-require 'hoshi/view-tag'
-
 module Hoshi
 	# The View class is the super-class for views you create with Hoshi.  More
 	# likely, though, you'll be using one of View's many sub-classes as the
@@ -15,6 +13,25 @@ module Hoshi
 	# (Private methods and methods that build up state do not need to do so.)
 	class View
 		class ValidationError < StandardError; end
+
+		# This creates an instance method for this view which appends a tag.
+		# Most of these are handled for you.  The arguments to this method
+		# match those to Tag.new.  See also View.permissive!.
+		# 	tag('h1')
+		# 	def show_an_h1
+		# 		h1 "I have been shown"
+		# 	end
+		def self.tag(name, close_type = nil)
+			define_method(name) { |*opts,&b|
+				if b
+					tag name, close_type, *opts, &b
+				else
+					tag name, close_type, *opts
+				end
+			}
+			# Inline tags.
+			define_method("_#{name}") { |*opts| _tag name, close_type, *opts }
+		end
 
 		# A short-hand for creating multiple tags via View.tag.  For tags that
 		# do not require closing, see View.open_tags.
